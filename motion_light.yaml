@@ -5,11 +5,14 @@ blueprint:
   source_url: https://github.com/ebonharme/home-assistant-blueprints/blob/main/motion_light.yaml
   input:
     motion_entity:
-      name: Motion Sensor
+      name: Occupency / Motion Sensor
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          filter:
+            domain: binary_sensor
+            device_class:
+              - motion
+              - occupancy
     light_target:
       name: Light
       selector:
